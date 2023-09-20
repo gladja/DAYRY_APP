@@ -7,7 +7,7 @@ export const AddItem = ({ items, setItems, getItemsLocalStorage}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name === '') return;
+    if (name.trim() === '') return;
     const newItems = [...items, { id:  nanoid(8), name, comments: []}];
     setItems(newItems)
     setName('');

@@ -1,4 +1,5 @@
-export const ListItems = ({ items }) => {
+export const ListItems = ({ items, handleDelete }) => {
+
   return (
     <>
       <ul>
@@ -6,7 +7,7 @@ export const ListItems = ({ items }) => {
           <div key={id}>
             <li >
               {name}
-              <button type='button'>Delete</button>
+              <button type='button' onClick={() => handleDelete(id)}>Delete</button>
             </li>
           </div>
         ))

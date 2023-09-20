@@ -1,7 +1,7 @@
 import { AddItem } from '../AddItem/AddItem';
 import { ListItems } from '../ListItems/ListItems';
 
-export const Items = ({ items, setItems, getItemsLocalStorage }) => {
+export const Items = ({ items, setItems, getItemsLocalStorage, handleDelete }) => {
   return (
     <>
       <div>
@@ -16,6 +16,7 @@ export const Items = ({ items, setItems, getItemsLocalStorage }) => {
           />
           <ListItems
             items={items}
+            handleDelete={handleDelete}
           />
         </div>
       </div>
