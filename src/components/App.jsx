@@ -8,7 +8,7 @@ export const App = () => {
   const [items, setItems] = useState(data);
   const [selectItem, setSelectItem] = useState({});
 
-  console.log(JSON.parse(localStorage.getItem('items')));
+  // console.log(JSON.parse(localStorage.getItem('items')));
 
   useEffect(() => {
     const storage =  JSON.parse(localStorage.getItem('items'));
@@ -29,6 +29,13 @@ export const App = () => {
     getItemsLocalStorage(delItem);
   }
 
+  const handleItem = (id) => {
+    console.log(id);
+    setSelectItem(items.find(el => el.id === id))
+    // setSelectItem(items.id)
+    console.log(selectItem);
+  }
+
   return (
     <>
     <div>
@@ -37,9 +44,11 @@ export const App = () => {
         setItems={setItems}
         getItemsLocalStorage={getItemsLocalStorage}
         handleDelete={handleDelete}
+        handleItem={handleItem}
       />
       <Comments
         items={items}
+        setItems={setItems}
       />
     </div>
     </>

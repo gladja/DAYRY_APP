@@ -1,11 +1,11 @@
-export const ListItems = ({ items, handleDelete }) => {
+export const ListItems = ({ items, handleDelete, handleItem }) => {
 
   return (
     <>
       <ul>
         {items && items.map(({ id, name }) => (
           <div key={id}>
-            <li >
+            <li onClick={() => handleItem(id)}>
               {name}
               <button type='button' onClick={() => handleDelete(id)}>Delete</button>
             </li>

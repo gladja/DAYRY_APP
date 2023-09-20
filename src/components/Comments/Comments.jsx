@@ -1,4 +1,7 @@
-export const Comments = ({ items }) => {
+import { AddComment } from '../AddComment/AddComment';
+
+export const Comments = ({ items, setItems }) => {
+
   return (
     <>
       <div>
@@ -9,15 +12,10 @@ export const Comments = ({ items }) => {
 
         </div>
         <div>
-          <form>
-            <input type='color'/>
-            <textarea
-              placeholder="Type comment here ..."
-              required
-            >
-            </textarea>
-            <button className="btn">Add New</button>
-          </form>
+          <AddComment
+            items={items}
+            setItems={setItems}
+          />
         </div>
       </div>
     </>
