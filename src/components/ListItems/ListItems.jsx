@@ -12,7 +12,7 @@ export const ListItems = ({
 }) => {
   const [idAc, setIdAc] = useState();
 
-  const activeItem = idAc === selectItem.id ? 'active-item' : '';
+  const activeItem = idAc === selectItem?.id ? 'active-item' : '';
 
   useEffect(() => {
     // console.log('yes');

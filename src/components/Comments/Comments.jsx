@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { AddComment } from '../AddComment/AddComment';
 
 export const Comments = ({ items, setItems, selectItem }) => {
