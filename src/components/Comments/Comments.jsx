@@ -1,6 +1,8 @@
 import { AddComment } from '../AddComment/AddComment';
+import { ListCommit } from '../ListCommit/ListCommit';
+import './Comments.scss'
 
-export const Comments = ({ items, setItems, selectItem }) => {
+export const Comments = ({ items, setItems, selectItem, setSelectItem }) => {
   return (
     <>
       <div>
@@ -13,7 +15,15 @@ export const Comments = ({ items, setItems, selectItem }) => {
             items={items}
             setItems={setItems}
             selectItem={selectItem}
+            setSelectItem={setSelectItem}
           />
+        </div>
+        <div>
+          <ul>
+            <ListCommit
+              selectItem={selectItem}
+            />
+          </ul>
         </div>
       </div>
     </>

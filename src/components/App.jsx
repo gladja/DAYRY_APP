@@ -4,42 +4,38 @@ import data from '../data/data.json';
 import { Comments } from './Comments/Comments';
 
 export const App = () => {
-  const [items, setItems] = useState(data);
-  const [selectItem, setSelectItem] = useState({});
-
-  // console.log(JSON.parse(localStorage.getItem('items')));
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('items')) || data); //data
+  const [selectedItem, setSelectedItem] = useState(JSON.parse(localStorage.getItem('selectItem')) || {});
 
   useEffect(() => {
-    const storage = JSON.parse(localStorage.getItem('items'));
-    setSelectItem(JSON.parse(localStorage.getItem('selectItem')));
-    if (storage === null || storage.length === 0) {
-      return setItems(data);
+    if (selectedItem) {
+      setToLocalStorage('selectItem', selectedItem);
     }
-    setItems(storage);
-  }, []);
+  }, [selectedItem])
 
-  const getItemsLocalStorage = (key, newItems = selectItem) => {
-    localStorage.setItem(key, JSON.stringify(newItems));
+  useEffect(() => {
+    if (items) {
+      setToLocalStorage('items', items);
+    }
+
+    if (items.length === 0) {
+    setSelectedItem({});
+    }
+  }, [items])
+
+  const setToLocalStorage = (key, data) => {
+    if (data) {
+      localStorage.setItem(key, JSON.stringify(data));
+    }
   };
 
   const handleDelete = id => {
-    const delItem = items.filter(el => el.id !== id);
-    setItems(delItem);
-    getItemsLocalStorage('items', delItem);
+    const filteredItems = items.filter(el => el.id !== id);
+    setItems(filteredItems);
+    setToLocalStorage('items', filteredItems);
   };
 
-  // let activeItem = '';
-  // const handleItem = (id) => {
-  //   console.log(id);
-  //   setSelectItem(items.find(el => el.id === id))
-  //   localStorage.setItem('selectItem', JSON.stringify(selectItem))
-  //     activeItem = id === selectItem.id ? 'active-item' : '';
-  //     console.log(id);
-  //     console.log(selectItem);
-  //     return activeItem;
-  //   }
-
-  // console.log(selectItem.id);
+  console.log(items);
 
   return (
     <>
@@ -47,12 +43,16 @@ export const App = () => {
         <Items
           items={items}
           setItems={setItems}
-          getItemsLocalStorage={getItemsLocalStorage}
           handleDelete={handleDelete}
-          selectItem={selectItem}
-          setSelectItem={setSelectItem}
+          selectedItem={selectedItem}
+          setSelectedItem={setSelectedItem}
         />
-        <Comments items={items} setItems={setItems} selectItem={selectItem} />
+        <Comments
+          items={items}
+          setItems={setItems}
+          selectItem={selectedItem}
+          setSelectItem={setSelectedItem}
+        />
       </div>
     </>
   );

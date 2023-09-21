@@ -1,13 +1,13 @@
 import { nanoid } from 'nanoid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export const AddComment = ({ items, setItems, selectItem }) => {
+export const AddComment = ({ items, setItems, selectItem, setSelectItem }) => {
   const [body, setBody] = useState('');
   const [color, setColor] = useState('#000000');
 
+
   const handleSubmit = e => {
     e.preventDefault();
-    // console.log(items[0].comments);
     if (body.trim() === '') return;
     const newComment = {
       id: nanoid(8),
@@ -16,15 +16,21 @@ export const AddComment = ({ items, setItems, selectItem }) => {
     };
     const selected = { ...selectItem };
     selected.comments.push(newComment);
-    console.log(selected);
+    setSelectItem(selected);
+    const newItems = [...items]
+    setItems(newItems);
+    localStorage.setItem('items', JSON.stringify(newItems));
+    setBody('');
   };
+  useEffect(() => {
+  }, []);
 
   const colorSet = e => {
     setColor(e.currentTarget.value);
     console.log(color);
   };
 
-  const commentItem = e => {
+  const colorAdd = e => {
     setBody(e.currentTarget.value);
     console.log(body);
   };
@@ -32,14 +38,14 @@ export const AddComment = ({ items, setItems, selectItem }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="color" value={color} onChange={colorSet} />
+        <input type='color' value={color} onChange={colorSet} />
         <textarea
-          placeholder="Type comment here ..."
+          placeholder='Type comment here ...'
           required
           value={body}
-          onChange={commentItem}
+          onChange={colorAdd}
         ></textarea>
-        <button type="submit">Add New</button>
+        <button type='submit'>Add New</button>
       </form>
     </>
   );

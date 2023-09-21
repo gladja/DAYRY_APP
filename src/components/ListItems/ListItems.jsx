@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './ListItems.scss';
 
 export const ListItems = ({
@@ -6,34 +6,23 @@ export const ListItems = ({
   id,
   name,
   handleDelete,
-  setSelectItem,
-  getItemsLocalStorage,
-  selectItem,
+  setSelectedItem,
+  selectedItem,
 }) => {
-  const [idAc, setIdAc] = useState();
-
-  const activeItem = idAc === selectItem?.id ? 'active-item' : '';
+  const classNames = selectedItem?.id === id ? 'active-item' : '';
 
   useEffect(() => {
-    // console.log('yes');
-    // console.log(selectItem.id);
   }, []);
 
-  useEffect(() => {
-    if (idAc) {
-      getItemsLocalStorage('selectItem');
-    }
-  });
-
   const handleItem = id => {
-    const select = items.find(el => el.id === id);
-    setSelectItem(select);
-    setIdAc(id);
+    const selected = items.find(el => el.id === id);
+    setSelectedItem(selected);
+
   };
 
   return (
     <>
-      <li className={`list-item ${activeItem}`} onClick={() => handleItem(id)}>
+      <li className={`list-item ${classNames}`} onClick={() => handleItem(id)}>
         {name}
         <button type="button" onClick={() => handleDelete(id)}>
           Delete

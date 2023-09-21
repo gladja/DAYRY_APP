@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 
-export const AddItem = ({ items, setItems, getItemsLocalStorage}) => {
+export const AddItem = ({ items, setItems }) => {
 
   const [name, setName] = useState('');
 
@@ -11,10 +11,9 @@ export const AddItem = ({ items, setItems, getItemsLocalStorage}) => {
     const newItems = [...items, { id:  nanoid(8), name, comments: []}];
     setItems(newItems)
     setName('');
-    getItemsLocalStorage('items', newItems);
   };
 
-  const nameItem = (e) => {
+  const setNameItem = (e) => {
     setName(e.currentTarget.value);
   };
 
@@ -23,7 +22,7 @@ export const AddItem = ({ items, setItems, getItemsLocalStorage}) => {
       <form onSubmit={handleSubmit}>
         <input
           name='inpet'
-          onChange={nameItem}
+          onChange={setNameItem}
           value={name}
           type='text'
           placeholder='Type name here...'

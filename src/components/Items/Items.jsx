@@ -4,11 +4,9 @@ import { ListItems } from '../ListItems/ListItems';
 export const Items = ({
   items,
   setItems,
-  getItemsLocalStorage,
   handleDelete,
-  setSelectItem,
-  selectItem,
-  handleItem,
+  setSelectedItem,
+  selectedItem,
 }) => {
   return (
     <>
@@ -20,7 +18,6 @@ export const Items = ({
           <AddItem
             items={items}
             setItems={setItems}
-            getItemsLocalStorage={getItemsLocalStorage}
           />
           <ul>
             {items &&
@@ -29,12 +26,10 @@ export const Items = ({
                   <ListItems
                     items={items}
                     handleDelete={handleDelete}
-                    setSelectItem={setSelectItem}
-                    selectItem={selectItem}
-                    getItemsLocalStorage={getItemsLocalStorage}
+                    setSelectedItem={setSelectedItem}
+                    selectedItem={selectedItem}
                     id={id}
                     name={name}
-                    handleItem={handleItem}
                   />
                 </div>
               ))}
