@@ -11,7 +11,7 @@ export const AddItem = ({ items, setItems, getItemsLocalStorage}) => {
     const newItems = [...items, { id:  nanoid(8), name, comments: []}];
     setItems(newItems)
     setName('');
-    getItemsLocalStorage(newItems);
+    getItemsLocalStorage('items', newItems);
   };
 
   const nameItem = (e) => {
