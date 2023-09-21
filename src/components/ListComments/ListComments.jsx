@@ -1,4 +1,4 @@
-export const ListCommit = ({ selectItem }) => { // CommentsList
+export const ListComments = ({ selectItem }) => {
   return (
     <>
       {selectItem && selectItem.comments?.map(({ body, color }, idx) => (

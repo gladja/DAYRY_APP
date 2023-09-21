@@ -32,7 +32,6 @@ export const AddComment = ({ items, setItems, selectItem, setSelectItem }) => {
 
   const colorAdd = e => {
     setBody(e.currentTarget.value);
-    console.log(body);
   };
 
   return (

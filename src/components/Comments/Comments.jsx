@@ -1,15 +1,22 @@
 import { AddComment } from '../AddComment/AddComment';
-import { ListCommit } from '../ListCommit/ListCommit';
-import './Comments.scss'
+import { ListComments } from '../ListComments/ListComments';
+import './comments.scss'
 
 export const Comments = ({ items, setItems, selectItem, setSelectItem }) => {
   return (
     <>
-      <div>
+      <div className='comments'>
         <div>
-          <h1>Comments</h1>
+          <h1>Comments {selectItem.id}</h1>
         </div>
         <div></div>
+        <div>
+          <ul>
+            <ListComments
+              selectItem={selectItem}
+            />
+          </ul>
+        </div>
         <div>
           <AddComment
             items={items}
@@ -17,13 +24,6 @@ export const Comments = ({ items, setItems, selectItem, setSelectItem }) => {
             selectItem={selectItem}
             setSelectItem={setSelectItem}
           />
-        </div>
-        <div>
-          <ul>
-            <ListCommit
-              selectItem={selectItem}
-            />
-          </ul>
         </div>
       </div>
     </>

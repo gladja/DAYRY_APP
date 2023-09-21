@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
-import './ListItems.scss';
+import './listItems.scss';
 
 export const ListItems = ({
-  items,
-  id,
-  name,
-  handleDelete,
-  setSelectedItem,
-  selectedItem,
-}) => {
+                            items,
+                            id,
+                            name,
+                            handleDelete,
+                            setSelectedItem,
+                            selectedItem,
+                            comments,
+                          }) => {
   const classNames = selectedItem?.id === id ? 'active-item' : '';
 
   useEffect(() => {
@@ -24,7 +25,8 @@ export const ListItems = ({
     <>
       <li className={`list-item ${classNames}`} onClick={() => handleItem(id)}>
         {name}
-        <button type="button" onClick={() => handleDelete(id)}>
+        <div>{comments.length}</div>
+        <button type='button' onClick={() => handleDelete(id)}>
           Delete
         </button>
       </li>

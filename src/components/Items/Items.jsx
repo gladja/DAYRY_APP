@@ -1,5 +1,6 @@
 import { AddItem } from '../AddItem/AddItem';
 import { ListItems } from '../ListItems/ListItems';
+import './items.scss'
 
 export const Items = ({
   items,
@@ -10,7 +11,7 @@ export const Items = ({
 }) => {
   return (
     <>
-      <div>
+      <div className='items'>
         <div>
           <h1>Items</h1>
         </div>
@@ -21,7 +22,7 @@ export const Items = ({
           />
           <ul>
             {items &&
-              items.map(({ id, name }) => (
+              items.map(({ id, name, comments}) => (
                 <div key={id}>
                   <ListItems
                     items={items}
@@ -30,6 +31,7 @@ export const Items = ({
                     selectedItem={selectedItem}
                     id={id}
                     name={name}
+                    comments={comments}
                   />
                 </div>
               ))}

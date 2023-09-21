@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Items } from './Items/Items';
 import data from '../data/data.json';
 import { Comments } from './Comments/Comments';
+import './app.scss'
 
 export const App = () => {
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('items')) || data); //data
@@ -35,11 +36,10 @@ export const App = () => {
     setToLocalStorage('items', filteredItems);
   };
 
-  console.log(items);
-
+  // console.log(items);
   return (
     <>
-      <div>
+      <div className='container'>
         <Items
           items={items}
           setItems={setItems}
