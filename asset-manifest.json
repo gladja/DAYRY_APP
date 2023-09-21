@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/DAYRY_APP/static/css/main.1780a30c.css",
-    "main.js": "/DAYRY_APP/static/js/main.0f30d0be.js",
+    "main.css": "/DAYRY_APP/static/css/main.8dbae20b.css",
+    "main.js": "/DAYRY_APP/static/js/main.204deb2e.js",
     "index.html": "/DAYRY_APP/index.html",
-    "main.1780a30c.css.map": "/DAYRY_APP/static/css/main.1780a30c.css.map",
-    "main.0f30d0be.js.map": "/DAYRY_APP/static/js/main.0f30d0be.js.map"
+    "main.8dbae20b.css.map": "/DAYRY_APP/static/css/main.8dbae20b.css.map",
+    "main.204deb2e.js.map": "/DAYRY_APP/static/js/main.204deb2e.js.map"
   },
   "entrypoints": [
-    "static/css/main.1780a30c.css",
-    "static/js/main.0f30d0be.js"
+    "static/css/main.8dbae20b.css",
+    "static/js/main.204deb2e.js"
   ]
 }
