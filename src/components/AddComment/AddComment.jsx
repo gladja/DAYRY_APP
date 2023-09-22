@@ -22,13 +22,12 @@ export const AddComment = ({ items, setItems, selectItem, setSelectItem }) => {
     setItems(newItems);
     localStorage.setItem('items', JSON.stringify(newItems));
     setBody('');
+    setColor('#000000')
   };
-  useEffect(() => {
-  }, []);
+
 
   const colorSet = e => {
     setColor(e.currentTarget.value);
-    console.log(color);
   };
 
   const colorAdd = e => {
