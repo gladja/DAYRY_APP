@@ -1,4 +1,4 @@
-# React homework template
+# React pet project
 
 Этот проект был создан при помощи
 [Create React App](https://github.com/facebook/create-react-app). Для знакомства
