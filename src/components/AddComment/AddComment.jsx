@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './addComment.scss'
 
 export const AddComment = ({ items, setItems, selectItem, setSelectItem }) => {
@@ -24,7 +24,6 @@ export const AddComment = ({ items, setItems, selectItem, setSelectItem }) => {
     setBody('');
     setColor('#000000')
   };
-
 
   const colorSet = e => {
     setColor(e.currentTarget.value);
