@@ -7,7 +7,7 @@ export const Comments = ({ items, setItems, selectItem, setSelectItem }) => {
     <>
       <div className='comments'>
         <div>
-          <h1>Comments {selectItem.id}</h1>
+          <h1>Comments #{selectItem.id}</h1>
         </div>
         <div></div>
         <div>

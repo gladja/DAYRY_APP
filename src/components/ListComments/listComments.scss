@@ -1,0 +1,18 @@
+.comments-item{
+  display: flex;
+  background-color: #fff;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.comments-item-color {
+  width: 50px;
+  height: 50px;
+  align-self: flex-start;
+  border-radius: 5px 0 0 5px;
+}
+
+.comments-item-text {
+  margin: auto 0;
+  padding: 5px 10px;
+}

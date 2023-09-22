@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { Items } from './Items/Items';
 import data from '../data/data.json';
 import { Comments } from './Comments/Comments';
-import './app.scss'
+import { Dayry } from './Dayry/Dayry';
+import './app.scss';
 
 export const App = () => {
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('items')) || data); //data
@@ -12,7 +13,7 @@ export const App = () => {
     if (selectedItem) {
       setToLocalStorage('selectItem', selectedItem);
     }
-  }, [selectedItem])
+  }, [selectedItem]);
 
   useEffect(() => {
     if (items) {
@@ -20,9 +21,9 @@ export const App = () => {
     }
 
     if (items.length === 0) {
-    setSelectedItem({});
+      setSelectedItem({});
     }
-  }, [items])
+  }, [items]);
 
   const setToLocalStorage = (key, data) => {
     if (data) {
@@ -39,20 +40,23 @@ export const App = () => {
   // console.log(items);
   return (
     <>
-      <div className='container'>
-        <Items
-          items={items}
-          setItems={setItems}
-          handleDelete={handleDelete}
-          selectedItem={selectedItem}
-          setSelectedItem={setSelectedItem}
-        />
-        <Comments
-          items={items}
-          setItems={setItems}
-          selectItem={selectedItem}
-          setSelectItem={setSelectedItem}
-        />
+      <div className={'container'}>
+        <Dayry />
+        <div className={'wrap'}>
+          <Items
+            items={items}
+            setItems={setItems}
+            handleDelete={handleDelete}
+            selectedItem={selectedItem}
+            setSelectedItem={setSelectedItem}
+          />
+          <Comments
+            items={items}
+            setItems={setItems}
+            selectItem={selectedItem}
+            setSelectItem={setSelectedItem}
+          />
+        </div>
       </div>
     </>
   );

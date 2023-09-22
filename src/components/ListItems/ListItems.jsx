@@ -24,9 +24,9 @@ export const ListItems = ({
   return (
     <>
       <li className={`list-item ${classNames}`} onClick={() => handleItem(id)}>
-        {name}
-        <div>{comments.length}</div>
-        <button type='button' onClick={() => handleDelete(id)}>
+        <div className={'item'}>{name}</div>
+        <div className={'count'}>{comments.length}</div>
+        <button className={'btn-del'} type='button' onClick={() => handleDelete(id)}>
           Delete
         </button>
       </li>

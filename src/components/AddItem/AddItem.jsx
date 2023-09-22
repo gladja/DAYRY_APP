@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import './addItem.scss'
 
 export const AddItem = ({ items, setItems }) => {
 
@@ -19,9 +20,10 @@ export const AddItem = ({ items, setItems }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={'input'}>
         <input
-          name='inpet'
+          className={'input-add'}
+          name='input'
           onChange={setNameItem}
           value={name}
           type='text'
@@ -29,7 +31,7 @@ export const AddItem = ({ items, setItems }) => {
           required
           autoCapitalize='off'
         />
-        <button type='submit'>Add New</button>
+        <button type='submit' className={'btn-add'}>Add New</button>
       </form>
     </>
   );
